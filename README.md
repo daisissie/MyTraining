@@ -22,8 +22,23 @@ Then visit `http://localhost:8080`.
 
 - Click `I want to exercise` to get a workout recommendation.
 - Click `I do not want to exercise` and it will suggest resting.
-- Fill your daily log and save it.
+- Exercise logs are auto-synced from imported Health workouts.
+- Add optional notes per day in the notes section.
+- Personal coach mode uses your history trend, mood, motivation, goal category, and coaching style.
 - Data is stored in browser `localStorage`.
+
+## Goal Categories
+
+You can change `Goal Category` anytime in the profile panel. Suggestions will adapt by category:
+- `Looking Fit / 塑造线条`: body composition + definition (strength + conditioning mix)
+- `Run Half Marathon / 半马`: run volume and endurance progression
+- `Gain Muscle / 增肌`: hypertrophy-focused strength sessions
+- `General Health / 综合体能`: balanced fitness and recovery
+
+You can also change `Coaching Style`:
+- `Encouraging`: warm motivational tone
+- `Calm`: low-pressure supportive tone
+- `Direct`: concise action-first tone
 
 ## Apple Health import (optional)
 

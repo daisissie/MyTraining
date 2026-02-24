@@ -21,6 +21,23 @@
               <input id="profileName" type="text" maxlength="32" placeholder="Your name" />
             </label>
             <label>
+              Coaching Style
+              <select id="supportStyle">
+                <option value="encouraging">Encouraging</option>
+                <option value="calm">Calm</option>
+                <option value="direct">Direct</option>
+              </select>
+            </label>
+            <label>
+              Goal Category
+              <select id="goalCategory">
+                <option value="look_fit">Looking Fit / 塑造线条</option>
+                <option value="half_marathon">Run Half Marathon / 半马</option>
+                <option value="gain_muscle">Gain Muscle / 增肌</option>
+                <option value="general">General Health / 综合体能</option>
+              </select>
+            </label>
+            <label>
               Main goal
               <input id="profileGoal" type="text" maxlength="80" placeholder="Build consistency, run 5k, etc." />
             </label>
@@ -30,6 +47,7 @@
 
       <section class="card">
         <h2>Today Decision</h2>
+        <p class="muted">Use your current feeling plus recent health data to decide training or rest.</p>
         <div class="decision-grid">
           <label>
             Date
@@ -47,6 +65,20 @@
             Soreness (1-10)
             <input id="sorenessLevel" type="number" min="1" max="10" step="1" placeholder="4" />
           </label>
+          <label>
+            Mood
+            <select id="moodState">
+              <option value="neutral">Neutral</option>
+              <option value="stressed">Stressed</option>
+              <option value="drained">Drained</option>
+              <option value="confident">Confident</option>
+              <option value="excited">Excited</option>
+            </select>
+          </label>
+          <label>
+            Motivation (1-10)
+            <input id="motivationLevel" type="number" min="1" max="10" step="1" placeholder="6" />
+          </label>
         </div>
 
         <div class="choice-buttons">
@@ -55,49 +87,40 @@
         </div>
 
         <div id="suggestionBox" class="suggestion"></div>
+        <div id="coachMessage" class="suggestion suggestion-coach"></div>
+        <p id="coachStats" class="muted"></p>
+      </section>
 
-        <form id="entryForm" class="entry-form" autocomplete="off">
-          <h3>Save Daily Log</h3>
+      <section class="card">
+        <h2>Daily Log (Auto from Band)</h2>
+        <p class="muted">Exercise logs are auto-synced from imported Health data. Use this area for personal notes.</p>
+        <p id="autoLogStatus" class="muted"></p>
+        <form id="notesForm" class="entry-form" autocomplete="off">
           <div class="decision-grid">
             <label>
-              Did exercise today?
-              <select id="didExercise">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </label>
-            <label>
-              Type
-              <select id="workoutType">
-                <option value="strength">Strength</option>
-                <option value="cardio">Cardio</option>
-                <option value="mobility">Mobility</option>
-                <option value="sports">Sports</option>
-                <option value="rest">Rest</option>
-              </select>
-            </label>
-            <label>
-              Duration (min)
-              <input id="durationMin" type="number" min="0" step="1" placeholder="45" />
-            </label>
-            <label>
-              Intensity (1-10)
-              <input id="intensityLevel" type="number" min="1" max="10" step="1" placeholder="6" />
+              Note Date
+              <input id="notesDate" type="date" />
             </label>
           </div>
           <label>
             Notes
-            <textarea id="dailyNotes" rows="3" placeholder="How do you feel today?"></textarea>
+            <textarea id="dailyNotes" rows="3" placeholder="Anything you want to remember for this day"></textarea>
           </label>
-          <button type="submit" class="btn">Save Entry</button>
+          <button type="submit" class="btn">Save Note</button>
         </form>
+        <p id="notesStatus" class="muted"></p>
       </section>
 
       <section class="card">
         <h2>Optional: Import Apple Health</h2>
         <p>Export Apple Health data on iPhone, then upload <code>export.xml</code> here.</p>
-        <input id="healthFileInput" type="file" accept=".xml,text/xml" />
+        <div class="file-upload">
+          <label for="healthFileInput" class="file-upload-btn">Choose File</label>
+          <span id="healthFileName" class="file-upload-name">No file selected</span>
+          <input id="healthFileInput" type="file" accept=".xml,text/xml" />
+        </div>
         <p id="healthStatus" class="muted"></p>
+        <p id="healthInsights" class="muted"></p>
       </section>
 
       <section class="card">
@@ -113,6 +136,7 @@
                 <th>Sleep</th>
                 <th>Energy</th>
                 <th>Soreness</th>
+                <th>Source</th>
                 <th>Imported Steps</th>
               </tr>
             </thead>

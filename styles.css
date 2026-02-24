@@ -162,6 +162,15 @@ textarea:focus {
   box-shadow: none;
 }
 
+#yesExercise {
+  background: linear-gradient(135deg, #ff6a3d, #ff9f43);
+  box-shadow: 0 8px 18px rgba(255, 106, 61, 0.32);
+}
+
+#yesExercise:hover {
+  filter: brightness(0.98);
+}
+
 .suggestion {
   margin-top: 14px;
   padding: 12px;
@@ -173,10 +182,59 @@ textarea:focus {
   align-items: center;
 }
 
+.suggestion-coach {
+  margin-top: 10px;
+  background: linear-gradient(135deg, rgba(255, 140, 64, 0.14), rgba(0, 143, 255, 0.12));
+  border: 1px solid #f3b37c;
+}
+
 .entry-form {
   margin-top: 14px;
   display: grid;
   gap: 10px;
+}
+
+.file-upload {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  border: 1px dashed var(--line);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.file-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  padding: 9px 13px;
+  background: linear-gradient(135deg, #0f7eff, #24a7ff);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 8px 16px rgba(36, 167, 255, 0.24);
+}
+
+.file-upload-btn:hover {
+  filter: brightness(0.97);
+}
+
+.file-upload-name {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+#healthFileInput {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
 }
 
 .table-wrap {
@@ -207,6 +265,18 @@ tbody tr:hover {
 
 .muted {
   color: var(--muted);
+}
+
+#healthInsights {
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+#autoLogStatus,
+#notesStatus,
+#coachStats {
+  margin-top: 8px;
+  line-height: 1.5;
 }
 
 @media (max-width: 760px) {
