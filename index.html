@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Training Space</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero card">
+        <div class="hero-top">
+          <div>
+            <p class="kicker">Personal Training Console</p>
+            <h1 id="heroTitle">Daily Training Space</h1>
+            <p id="heroSubtitle">Track your training, decide rest vs exercise, and get a practical suggestion.</p>
+          </div>
+          <div class="personal-box">
+            <label>
+              Call me
+              <input id="profileName" type="text" maxlength="32" placeholder="Your name" />
+            </label>
+            <label>
+              Main goal
+              <input id="profileGoal" type="text" maxlength="80" placeholder="Build consistency, run 5k, etc." />
+            </label>
+          </div>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2>Today Decision</h2>
+        <div class="decision-grid">
+          <label>
+            Date
+            <input id="entryDate" type="date" />
+          </label>
+          <label>
+            Sleep (hours)
+            <input id="sleepHours" type="number" min="0" max="24" step="0.5" placeholder="7.5" />
+          </label>
+          <label>
+            Energy (1-10)
+            <input id="energyLevel" type="number" min="1" max="10" step="1" placeholder="7" />
+          </label>
+          <label>
+            Soreness (1-10)
+            <input id="sorenessLevel" type="number" min="1" max="10" step="1" placeholder="4" />
+          </label>
+        </div>
+
+        <div class="choice-buttons">
+          <button id="yesExercise" class="btn">I want to exercise</button>
+          <button id="noExercise" class="btn btn-secondary">I do not want to exercise</button>
+        </div>
+
+        <div id="suggestionBox" class="suggestion"></div>
+
+        <form id="entryForm" class="entry-form" autocomplete="off">
+          <h3>Save Daily Log</h3>
+          <div class="decision-grid">
+            <label>
+              Did exercise today?
+              <select id="didExercise">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </label>
+            <label>
+              Type
+              <select id="workoutType">
+                <option value="strength">Strength</option>
+                <option value="cardio">Cardio</option>
+                <option value="mobility">Mobility</option>
+                <option value="sports">Sports</option>
+                <option value="rest">Rest</option>
+              </select>
+            </label>
+            <label>
+              Duration (min)
+              <input id="durationMin" type="number" min="0" step="1" placeholder="45" />
+            </label>
+            <label>
+              Intensity (1-10)
+              <input id="intensityLevel" type="number" min="1" max="10" step="1" placeholder="6" />
+            </label>
+          </div>
+          <label>
+            Notes
+            <textarea id="dailyNotes" rows="3" placeholder="How do you feel today?"></textarea>
+          </label>
+          <button type="submit" class="btn">Save Entry</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Optional: Import Apple Health</h2>
+        <p>Export Apple Health data on iPhone, then upload <code>export.xml</code> here.</p>
+        <input id="healthFileInput" type="file" accept=".xml,text/xml" />
+        <p id="healthStatus" class="muted"></p>
+      </section>
+
+      <section class="card">
+        <h2>Recent History</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Exercise</th>
+                <th>Type</th>
+                <th>Duration</th>
+                <th>Sleep</th>
+                <th>Energy</th>
+                <th>Soreness</th>
+                <th>Imported Steps</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

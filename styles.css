@@ -1,0 +1,227 @@
+:root {
+  --bg: #e8f1ff;
+  --bg-deep: #cfdefa;
+  --card: rgba(255, 255, 255, 0.76);
+  --text: #112444;
+  --muted: #4d6286;
+  --accent: #008fff;
+  --accent-2: #0acb94;
+  --accent-3: #ff8c40;
+  --line: #b7caec;
+  --glow: rgba(0, 143, 255, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(10, 203, 148, 0.2) 0%, rgba(10, 203, 148, 0) 34%),
+    radial-gradient(circle at 100% 0%, rgba(0, 143, 255, 0.28) 0%, rgba(0, 143, 255, 0) 38%),
+    linear-gradient(150deg, var(--bg) 0%, var(--bg-deep) 100%);
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(17, 36, 68, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 36, 68, 0.06) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  margin-top: 0;
+}
+
+.hero-top {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 700;
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, monospace;
+}
+
+.hero h1 {
+  margin: 6px 0 8px;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.1;
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, monospace;
+}
+
+.hero p {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.personal-box {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 16px;
+  box-shadow: 0 14px 30px rgba(17, 36, 68, 0.1);
+}
+
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--glow);
+  border-color: var(--accent);
+}
+
+.choice-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), #38b3ff);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 18px var(--glow);
+}
+
+.btn:hover {
+  filter: brightness(0.96);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #556f9c, #6f84ad);
+  box-shadow: none;
+}
+
+.suggestion {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(10, 203, 148, 0.12), rgba(0, 143, 255, 0.14));
+  border: 1px solid #7bc8f8;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.entry-form {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  padding: 9px 8px;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+tbody tr:hover {
+  background: rgba(0, 143, 255, 0.06);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .hero-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 16px 10px 28px;
+  }
+
+  .card {
+    border-radius: 12px;
+    padding: 12px;
+  }
+}
